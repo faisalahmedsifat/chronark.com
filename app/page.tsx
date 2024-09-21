@@ -3,8 +3,9 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blogs", href: "/projects" },
 ];
 
 export default function Home() {
@@ -35,14 +36,19 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 ">
-          I'm building{" "}
+          I'm Faisal Ahmed Sifat. CEO {" @"}
           <Link
             target="_blank"
-            href="https://unkey.dev"
+            href="https://alphawolfventures.com"
             className="underline duration-500 hover:text-zinc-300"
           >
-            unkey.dev
-          </Link> to solve API authentication and authorization for developers.
+            AlphaWolf Ventures, Inc.
+          </Link> Currently handling your data for ML Workflows with {" "}
+          <Link
+            target="_blank"
+            href="https://tensorify.io"
+            className="underline duration-500 hover:text-zinc-300"
+          >Tensorify.io</Link> so that you can focus on Innovation.
         </h2>
       </div>
     </div>
