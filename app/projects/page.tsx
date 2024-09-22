@@ -23,7 +23,7 @@ const demoProjects = [
     date: "2023-06-10",
     published: true,
     views: 980,
-    website: "https://vocablet.io",
+    website: "https://tensorify.io",
   },
   {
     slug: "segment3d",
@@ -75,6 +75,7 @@ const demoProjects = [
     date: "2022-12-05",
     published: true,
     views: 670,
+    website: "https://onlinelibrary.wiley.com/doi/10.1002/ail2.101",
   },
   {
     slug: "bangla-finetuned-model",
@@ -87,7 +88,9 @@ const demoProjects = [
 ];
 
 export default function ProjectsPage() {
-  const featured = demoProjects.find((project) => project.slug === "tensorify")!;
+  const featured = demoProjects.find(
+    (project) => project.slug === "tensorify"
+  )!;
   const top2 = demoProjects.find((project) => project.slug === "segment3d")!;
   const top3 = demoProjects.find((project) => project.slug === "vocablet")!;
   const sorted = demoProjects
@@ -120,7 +123,15 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
-            <Link href={`/projects/${featured.slug}`}>
+            <Link
+              href={
+                featured.website
+                  ? featured.website
+                  : featured.googleplay
+                  ? featured.googleplay
+                  : ""
+              }
+            >
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -136,9 +147,9 @@ export default function ProjectsPage() {
                   </div>
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
                     <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      featured.views ?? 0
-                    )}
+                    {Intl.NumberFormat("en-US", {
+                      notation: "compact",
+                    }).format(featured.views ?? 0)}
                   </span>
                 </div>
 
