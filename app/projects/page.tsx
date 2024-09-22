@@ -9,8 +9,8 @@ import { Eye } from "lucide-react";
 const demoProjects = [
   {
     slug: "vocablet",
-    title: "Vocablet.io | An AI Powered Vocabulary Learning App",
-    description: "A project that brings static keys management to the cloud.",
+    title: "Vocablet.io | An AI Powered Vocabulary Learning Platform",
+    description: "Roleplay with AI Agents and Learn vocabulary with automatic vocabulary suggestion and more.",
     date: "2023-08-15",
     published: true,
     views: 1200,
@@ -18,8 +18,8 @@ const demoProjects = [
   },
   {
     slug: "tensorify",
-    title: "Tensorify.io | Prepare, Annotate, Elevate Your AI Workloads",
-    description: "An exploration-based game set in a sci-fi universe.",
+    title: "Tensorify.io | Site Under Construction",
+    description: "Unlock your next AI innovation with data.",
     date: "2023-06-10",
     published: true,
     views: 980,
@@ -28,7 +28,7 @@ const demoProjects = [
   {
     slug: "segment3d",
     title: "3D Point Cloud Annotation Software",
-    description: "A weather tracking application with real-time data.",
+    description: "A 3D Segmentation tool with Meta's 2D Segment-Anything model. Unlocked 3D Segmentation, next stop: 3D Annotation tool.",
     date: "2023-07-22",
     published: true,
     views: 1500,
@@ -36,7 +36,7 @@ const demoProjects = [
   {
     slug: "axpense",
     title: "AXpense | Expense Tracking App",
-    description: "A placeholder project with exciting new features.",
+    description: "A minimalistic expense tracking application made with flutter.",
     date: "2023-01-15",
     published: true,
     views: 750,
@@ -46,7 +46,7 @@ const demoProjects = [
   {
     slug: "dental-loop-chatbot",
     title: "Dental Loop Chatbot | An Expert System for Dentistry.",
-    description: "A cool feature for your existing project.",
+    description: "A Fine-tuned RAG based Chatbot with Fine-tuned LLama2 7B model.",
     date: "2022-12-05",
     published: true,
     views: 670,
@@ -54,15 +54,7 @@ const demoProjects = [
   {
     slug: "jaw-3d-segmentation",
     title: "3D Jaw Segmentation (Domain Adaptation)",
-    description: "A cool feature for your existing project.",
-    date: "2022-12-05",
-    published: true,
-    views: 670,
-  },
-  {
-    slug: "jaw-3d-segmentation",
-    title: "3D Jaw Segmentation (Domain Adaptation)",
-    description: "A cool feature for your existing project.",
+    description: "Trained a model with 3D Sythetic jaw to segment tooth from a real 3D Jaw.",
     date: "2022-12-05",
     published: true,
     views: 670,
@@ -71,7 +63,7 @@ const demoProjects = [
     slug: "3d-tooth-classification",
     title:
       "An Application of 3D Vision Transformers and Explainable AI in Prosthetic Dentistry",
-    description: "A cool feature for your existing project.",
+    description: "3D Tooth Classification with Vision Transformers and Explainable AI.",
     date: "2022-12-05",
     published: true,
     views: 670,
@@ -80,7 +72,7 @@ const demoProjects = [
   {
     slug: "bangla-finetuned-model",
     title: "Fine-tuned Bangla LLM",
-    description: "A cool feature for your existing project.",
+    description: "Fine-tuned Bloom 3B model on a curated bangla conversation dataset.",
     date: "2022-12-05",
     published: true,
     views: 670,
