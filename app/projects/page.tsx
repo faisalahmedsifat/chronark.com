@@ -4,100 +4,38 @@ import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
 import { Eye } from "lucide-react";
-
-// Static demo project data
-const demoProjects = [
-  {
-    slug: "vocablet",
-    title: "Vocablet.io | An AI Powered Vocabulary Learning Platform",
-    description: "Roleplay with AI Agents and Learn vocabulary with automatic vocabulary suggestion and more.",
-    date: "2023-08-15",
-    published: true,
-    views: 1200,
-    website: "https://vocablet.io",
-  },
-  {
-    slug: "tensorify",
-    title: "Tensorify.io | Site Under Construction",
-    description: "Unlock your next AI innovation with data.",
-    date: "2023-06-10",
-    published: true,
-    views: 980,
-    website: "https://tensorify.io",
-  },
-  {
-    slug: "segment3d",
-    title: "3D Point Cloud Annotation Software",
-    description: "A 3D Segmentation tool with Meta's 2D Segment-Anything model. Unlocked 3D Segmentation, next stop: 3D Annotation tool.",
-    date: "2023-07-22",
-    published: true,
-    views: 1500,
-  },
-  {
-    slug: "axpense",
-    title: "AXpense | Expense Tracking App",
-    description: "A minimalistic expense tracking application made with flutter.",
-    date: "2023-01-15",
-    published: true,
-    views: 750,
-    googleplay:
-      "https://play.google.com/store/apps/details?id=com.alphawolfventures.axpense&hl=en",
-  },
-  {
-    slug: "dental-loop-chatbot",
-    title: "Dental Loop Chatbot | An Expert System for Dentistry.",
-    description: "A Fine-tuned RAG based Chatbot with Fine-tuned LLama2 7B model.",
-    date: "2022-12-05",
-    published: true,
-    views: 670,
-  },
-  {
-    slug: "jaw-3d-segmentation",
-    title: "3D Jaw Segmentation (Domain Adaptation)",
-    description: "Trained a model with 3D Sythetic jaw to segment tooth from a real 3D Jaw.",
-    date: "2022-12-05",
-    published: true,
-    views: 670,
-  },
-  {
-    slug: "3d-tooth-classification",
-    title:
-      "An Application of 3D Vision Transformers and Explainable AI in Prosthetic Dentistry",
-    description: "3D Tooth Classification with Vision Transformers and Explainable AI.",
-    date: "2022-12-05",
-    published: true,
-    views: 670,
-    website: "https://onlinelibrary.wiley.com/doi/10.1002/ail2.101",
-  },
-  {
-    slug: "bangla-finetuned-model",
-    title: "Fine-tuned Bangla LLM",
-    description: "Fine-tuned Bloom 3B model on a curated bangla conversation dataset.",
-    date: "2022-12-05",
-    published: true,
-    views: 670,
-  },
-];
+import { projects } from "./projectsData";
 
 export default function ProjectsPage() {
-  const featured = demoProjects.find(
-    (project) => project.slug === "tensorify"
-  )!;
-  const top2 = demoProjects.find((project) => project.slug === "segment3d")!;
-  const top3 = demoProjects.find((project) => project.slug === "vocablet")!;
-  const sorted = demoProjects
-    .filter((p) => p.published)
-    .filter(
-      (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug
-    )
-    .sort(
-      (a, b) =>
-        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
-    );
+  // Find featured projects
+  const featured = projects.find(project => project.slug === "tensorify")!;
+  const top2 = projects.find(project => project.slug === "segment3d")!;
+  const top3 = projects.find(project => project.slug === "vocablet")!;
+  
+  // Group other projects by type
+  const commercialProjects = projects.filter(p => 
+    p.type === "commercial" && 
+    p.published
+  );
+  
+  const professionalProjects = projects.filter(p => 
+    p.type === "professional" && 
+    p.published
+  );
+  
+  const researchProjects = projects.filter(p => 
+    p.type === "research" && 
+    p.published
+  );
+  
+  const publications = projects.filter(p => 
+    p.type === "publication" && 
+    p.published
+  );
+  
+  // Combine all non-featured projects for the grid display
+  const otherProjects = [...commercialProjects, ...professionalProjects, ...researchProjects, ...publications]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="relative pb-16">
@@ -113,35 +51,30 @@ export default function ProjectsPage() {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
           <Card>
-            <Link
-              href={
-                featured.website
-                  ? featured.website
-                  : featured.googleplay
-                  ? featured.googleplay
-                  : ""
-              }
-            >
+            <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
-                  <div className="text-xs text-zinc-100">
-                    {featured.date ? (
-                      <time dateTime={new Date(featured.date).toISOString()}>
-                        {Intl.DateTimeFormat(undefined, {
-                          dateStyle: "medium",
-                        }).format(new Date(featured.date))}
-                      </time>
-                    ) : (
-                      <span>SOON</span>
-                    )}
+                  <div className="flex flex-col">
+                    <div className="text-xs text-zinc-100">
+                      {featured.date ? (
+                        <time dateTime={new Date(featured.date).toISOString()}>
+                          {Intl.DateTimeFormat(undefined, {
+                            dateStyle: "medium",
+                          }).format(new Date(featured.date))}
+                        </time>
+                      ) : (
+                        <span>SOON</span>
+                      )}
+                    </div>
+                    <span className="text-xs text-zinc-400 mt-1">{featured.category}</span>
                   </div>
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
                     <Eye className="w-4 h-4" />{" "}
                     {Intl.NumberFormat("en-US", {
                       notation: "compact",
-                    }).format(featured.views ?? 0)}
+                    }).format(featured.views)}
                   </span>
                 </div>
 
@@ -154,6 +87,13 @@ export default function ProjectsPage() {
                 <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}
                 </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {featured.technologies?.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="text-xs px-2 py-1 bg-zinc-800 text-zinc-300 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
                 <div className="absolute bottom-4 md:bottom-8">
                   <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
                     Read more <span aria-hidden="true">&rarr;</span>
@@ -166,41 +106,69 @@ export default function ProjectsPage() {
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
-                <Article project={project} views={project.views} />
+                <Article project={project} />
               </Card>
             ))}
           </div>
         </div>
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
-
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 0)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={project.views} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 1)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={project.views} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 2)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={project.views} />
-                </Card>
-              ))}
-          </div>
+        
+        {/* Categories section */}
+        <div className="space-y-8">
+          {commercialProjects.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Commercial Products</h3>
+              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
+                {commercialProjects.map((project) => (
+                  <Card key={project.slug}>
+                    <Article project={project} />
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {professionalProjects.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Professional Projects</h3>
+              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+                {professionalProjects.map((project) => (
+                  <Card key={project.slug}>
+                    <Article project={project} />
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {researchProjects.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Research Projects</h3>
+              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+                {researchProjects.map((project) => (
+                  <Card key={project.slug}>
+                    <Article project={project} />
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {publications.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Publications</h3>
+              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+                {publications.map((project) => (
+                  <Card key={project.slug}>
+                    <Article project={project} />
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
