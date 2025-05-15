@@ -38,23 +38,23 @@ export default function ProjectsPage() {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
-    <div className="relative pb-16">
+    <div className="relative pb-12 sm:pb-16">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="px-4 sm:px-6 pt-16 sm:pt-20 md:pt-24 lg:pt-32 mx-auto space-y-6 sm:space-y-8 md:space-y-16 max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Projects
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-2 sm:mt-4 text-sm sm:text-base text-zinc-400">
             Some of the projects are from work and some are on my own time.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:gap-8 mx-auto lg:grid-cols-2">
           <Card>
             <Link href={`/projects/${featured.slug}`}>
-              <article className="relative w-full h-full p-4 md:p-8">
+              <article className="relative w-full h-full p-3 sm:p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex flex-col">
                     <div className="text-xs text-zinc-100">
@@ -68,10 +68,10 @@ export default function ProjectsPage() {
                         <span>SOON</span>
                       )}
                     </div>
-                    <span className="text-xs text-zinc-400 mt-1">{featured.category}</span>
+                    <span className="text-xs text-zinc-400 mt-0.5 sm:mt-1">{featured.category}</span>
                   </div>
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
+                    <Eye className="w-3 h-3 sm:w-4 sm:h-4" />{" "}
                     {Intl.NumberFormat("en-US", {
                       notation: "compact",
                     }).format(featured.views)}
@@ -80,22 +80,22 @@ export default function ProjectsPage() {
 
                 <h2
                   id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                  className="mt-2 sm:mt-4 text-2xl sm:text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
                 >
                   {featured.title}
                 </h2>
-                <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                <p className="mt-2 sm:mt-4 text-xs sm:text-sm leading-6 sm:leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-2 sm:mt-4 flex flex-wrap gap-1 sm:gap-2">
                   {featured.technologies?.slice(0, 3).map((tech, i) => (
-                    <span key={i} className="text-xs px-2 py-1 bg-zinc-800 text-zinc-300 rounded-full">
+                    <span key={i} className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 bg-zinc-800 text-zinc-300 rounded-full">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="absolute bottom-4 md:bottom-8">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                <div className="absolute bottom-3 sm:bottom-4 md:bottom-8">
+                  <p className="hidden text-sm sm:text-base text-zinc-200 hover:text-zinc-50 lg:block">
                     Read more <span aria-hidden="true">&rarr;</span>
                   </p>
                 </div>
@@ -103,7 +103,7 @@ export default function ProjectsPage() {
             </Link>
           </Card>
 
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+          <div className="flex flex-col w-full gap-4 sm:gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} />
@@ -113,12 +113,12 @@ export default function ProjectsPage() {
         </div>
         
         {/* Categories section */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {commercialProjects.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Commercial Products</h3>
-              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
-              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-100">Commercial Products</h3>
+              <div className="hidden w-full h-px my-2 sm:my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 mx-auto lg:mx-0 md:grid-cols-3">
                 {commercialProjects.map((project) => (
                   <Card key={project.slug}>
                     <Article project={project} />
@@ -130,9 +130,9 @@ export default function ProjectsPage() {
           
           {professionalProjects.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Professional Projects</h3>
-              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
-              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-100">Professional Projects</h3>
+              <div className="hidden w-full h-px my-2 sm:my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 mx-auto lg:mx-0 md:grid-cols-2">
                 {professionalProjects.map((project) => (
                   <Card key={project.slug}>
                     <Article project={project} />
@@ -144,9 +144,9 @@ export default function ProjectsPage() {
           
           {researchProjects.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Research Projects</h3>
-              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
-              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-100">Research Projects</h3>
+              <div className="hidden w-full h-px my-2 sm:my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 mx-auto lg:mx-0 md:grid-cols-2">
                 {researchProjects.map((project) => (
                   <Card key={project.slug}>
                     <Article project={project} />
@@ -158,9 +158,9 @@ export default function ProjectsPage() {
           
           {publications.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-zinc-100">Publications</h3>
-              <div className="hidden w-full h-px my-4 md:block bg-zinc-800" />
-              <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-100">Publications</h3>
+              <div className="hidden w-full h-px my-2 sm:my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 mx-auto lg:mx-0 md:grid-cols-2">
                 {publications.map((project) => (
                   <Card key={project.slug}>
                     <Article project={project} />

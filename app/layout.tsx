@@ -1,21 +1,21 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "theentrepreneuw",
-    template: "%s | theentrepreneuw",
+    default: "Faisal Ahmed Sifat",
+    template: "%s | Faisal Ahmed Sifat",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "CEO at AlphaWolf Ventures, Inc. Building Tensorify.io and other AI-powered platforms for developers, researchers, and businesses.",
   openGraph: {
-    title: "theentrepreneuw",
+    title: "Faisal Ahmed Sifat",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "CEO at AlphaWolf Ventures, Inc. Building Tensorify.io and other AI-powered platforms for developers, researchers, and businesses.",
     url: "https://theentrepreneuw.com",
-    siteName: "theentrepreneuw",
+    siteName: "Faisal Ahmed Sifat",
     images: [
       {
         url: "https://theentrepreneuw.com/og.png",
@@ -38,19 +38,20 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "The Entrepreneuw",
+    title: "Faisal Ahmed Sifat",
     card: "summary_large_image",
   },
   icons: {
     shortcut: "/favicon.png",
   },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-const calSans = LocalFont({
+const calSans = localFont({
   src: "../public/fonts/CalSans-SemiBold.ttf",
   variable: "--font-calsans",
 });
@@ -62,13 +63,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-      <head>
-        <Analytics />
-      </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
           }`}
       >
+        <Analytics />
         {children}
       </body>
     </html>
