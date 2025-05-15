@@ -5,8 +5,8 @@ import { projects } from "./projects/projectsData";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-  { name: "Blog", href: "/blog" }
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" }
 ];
 
 export default function Home() {
@@ -104,6 +104,37 @@ export default function Home() {
           <div className="mt-4 sm:mt-6">
             <Link href="/projects" className="text-xs sm:text-sm text-zinc-400 hover:text-zinc-300 underline">
               View all projects →
+            </Link>
+          </div>
+        </div>
+        
+        {/* Featured Blog Posts Section */}
+        <div className="mt-10 md:mt-16 border-t border-zinc-800 pt-6 md:pt-8">
+          <h3 className="text-zinc-300 text-base sm:text-lg mb-3 sm:mb-4 font-medium">Recent Writing</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            {/* This is just a placeholder - blog posts will be fetched and displayed in the blog page */}
+            <Link 
+              href="/blog"
+              className="group p-3 sm:p-4 border border-zinc-800 rounded-lg hover:bg-zinc-800/50 transition-all duration-300"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex justify-between mb-2">
+                  <span className="text-[10px] px-2 py-0.5 bg-indigo-900/60 text-indigo-300 rounded-full">
+                    ARTICLE
+                  </span>
+                </div>
+                <h4 className="text-zinc-200 text-sm sm:text-base font-medium mb-1 sm:mb-2 group-hover:text-white">
+                  AI Explained: A Beginner's Guide to How Artificial Intelligence Really Works
+                </h4>
+                <p className="text-xs text-zinc-400 flex-grow mb-1 sm:mb-2">
+                  Discover how AI actually works in this beginner-friendly guide.
+                </p>
+              </div>
+            </Link>
+          </div>
+          <div className="mt-4 sm:mt-6">
+            <Link href="/blog" className="text-xs sm:text-sm text-zinc-400 hover:text-zinc-300 underline">
+              Read all articles →
             </Link>
           </div>
         </div>
