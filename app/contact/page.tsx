@@ -56,6 +56,10 @@ export default function ContactPage() {
                 target="_blank"
                 className="p-4 sm:p-6 md:p-8 relative flex flex-col items-center gap-3 sm:gap-4 duration-700 group h-full"
               >
+                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8">
+                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200" />
+                </div>
+                
                 <span
                   className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
                   aria-hidden="true"
@@ -75,10 +79,6 @@ export default function ContactPage() {
                     {social.description}
                   </p>
                 </div>
-                
-                <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 flex items-center justify-center">
-                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200" />
-                </div>
               </Link>
             </Card>
           ))}
@@ -89,7 +89,7 @@ export default function ContactPage() {
             <h2 className="text-xl sm:text-2xl font-medium text-zinc-200 mb-4">
               Let's Build Something Amazing Together
             </h2>
-            <p className="text-sm text-zinc-400 mb-6">
+            <p className="text-sm text-zinc-400 mb-6"> 
               Whether you're looking to develop an AI-powered solution, need technical consultation, or want to explore a partnership opportunity, I'd love to hear from you.
             </p>
             <Link 
