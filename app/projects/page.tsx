@@ -5,6 +5,7 @@ import { Card } from "../components/card";
 import { Article } from "./article";
 import { Eye } from "lucide-react";
 import { projects } from "./projectsData";
+import { Footer } from "../components/footer";
 
 export default function ProjectsPage() {
   // Find featured projects
@@ -38,9 +39,9 @@ export default function ProjectsPage() {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
-    <div className="relative pb-12 sm:pb-16">
+    <div className="relative min-h-screen flex flex-col">
       <Navigation />
-      <div className="px-4 sm:px-6 pt-16 sm:pt-20 md:pt-24 lg:pt-32 mx-auto space-y-6 sm:space-y-8 md:space-y-16 max-w-7xl lg:px-8">
+      <div className="px-4 sm:px-6 pt-16 sm:pt-20 md:pt-24 lg:pt-32 mx-auto space-y-6 sm:space-y-8 md:space-y-16 max-w-7xl lg:px-8 flex-grow">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Projects
@@ -170,6 +171,10 @@ export default function ProjectsPage() {
             </div>
           )}
         </div>
+      </div>
+      
+      <div className="mt-16 md:mt-24">
+        <Footer />
       </div>
     </div>
   );

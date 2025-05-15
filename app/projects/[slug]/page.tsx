@@ -4,6 +4,7 @@ import { Navigation } from "../../components/nav";
 import { projects } from "../projectsData";
 import { Card } from "../../components/card";
 import { Eye, ArrowLeft, Calendar, Tag } from "lucide-react";
+import { Footer } from "../../components/footer";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -25,9 +26,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     .slice(0, 3);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+    <div className="relative min-h-screen bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900 flex flex-col">
       <Navigation />
-      <div className="px-4 sm:px-6 pt-16 sm:pt-20 mx-auto space-y-6 sm:space-y-8 max-w-7xl lg:px-8 md:space-y-12 md:pt-24 lg:pt-32">
+      <div className="px-4 sm:px-6 pt-16 sm:pt-20 mx-auto space-y-6 sm:space-y-8 max-w-7xl lg:px-8 md:space-y-12 md:pt-24 lg:pt-32 flex-grow">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <div className="flex items-center space-x-2 sm:space-x-4">
             <Link 
@@ -266,6 +267,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             )}
           </div>
         </div>
+      </div>
+      
+      <div className="mt-16 md:mt-24">
+        <Footer />
       </div>
     </div>
   );

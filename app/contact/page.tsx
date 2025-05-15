@@ -3,6 +3,7 @@ import { Github, Mail, Twitter, Linkedin, Send, ExternalLink } from "lucide-reac
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { Footer } from "../components/footer";
 
 const socials = [
   {
@@ -36,9 +37,9 @@ const socials = [
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="relative min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 flex flex-col">
       <Navigation />
-      <div className="px-4 sm:px-6 pt-16 sm:pt-20 mx-auto space-y-6 max-w-5xl lg:px-8 md:pt-24 lg:pt-32">
+      <div className="px-4 sm:px-6 pt-16 sm:pt-20 mx-auto space-y-6 max-w-5xl lg:px-8 md:pt-24 lg:pt-32 flex-grow">
         <div className="max-w-2xl mx-auto text-center mb-12 sm:mb-16">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-100">
             Get in Touch
@@ -101,6 +102,10 @@ export default function ContactPage() {
             </Link>
           </div>
         </div>
+      </div>
+      
+      <div className="mt-16 md:mt-24">
+        <Footer />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import Particles from "./components/particles";
 import { projects } from "./projects/projectsData";
 import { Calendar, Clock } from "lucide-react";
+import { Footer } from "./components/footer";
 
 // Define Blog interfaces from blog page
 interface Blog {
@@ -294,6 +295,10 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </div>
+      
+      <div className="w-full mt-16 md:mt-24 animate-fade-in">
+        <Footer />
       </div>
     </div>
   );
