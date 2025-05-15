@@ -41,7 +41,7 @@ export const projects: Project[] = [
     keyBenefits: ["80% less time from concept to deployment", "zero boilerplate code", "3x faster experimentation and iteration cycles"],
     website: "https://tensorify.io",
     views: 1580,
-    date: "2023-06-10",
+    date: "2025-05-15",
     published: true,
     featured: true,
     type: "commercial"
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     solution: "By combining conversational AI with spaced repetition learning techniques, Vocablet creates an engaging, personalized vocabulary learning experience.",
     website: "https://vocablet.io",
     views: 1320,
-    date: "2023-08-15",
+    date: "2024-08-15",
     published: true,
     featured: true,
     type: "commercial"
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     solution: "AXpense strikes the perfect balance between simplicity and functionality with an intuitive UI and just the right features for personal finance management.",
     googleplay: "https://play.google.com/store/apps/details?id=com.alphawolfventures.axpense&hl=en",
     views: 890,
-    date: "2023-01-15",
+    date: "2024-01-15",
     published: true,
     featured: false,
     type: "commercial"
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     results: "Achieved 50% improvement in knowledge retrieval accuracy for dental guidelines.",
     views: 750,
     website: "https://dentalloop.au",
-    date: "2022-11-20",
+    date: "2024-11-15",
     published: true,
     featured: false,
     type: "commercial"
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     ],
     website: "https://order.happytuna.com",
     views: 680,
-    date: "2022-10-05",
+    date: "2025-04-29",
     published: true,
     featured: false,
     type: "professional"
@@ -148,7 +148,7 @@ export const projects: Project[] = [
       "User experience design for students, tutors, and administrators"
     ],
     views: 720,
-    date: "2023-03-15",
+    date: "2025-07-15",
     published: true,
     featured: false,
     type: "professional"
@@ -241,7 +241,7 @@ export const projects: Project[] = [
       "Handling occlusion in 3D space"
     ],
     views: 1580,
-    date: "2023-07-22",
+    date: "2024-07-22",
     published: true,
     featured: true,
     type: "research"
@@ -258,7 +258,7 @@ export const projects: Project[] = [
     solution: "Fine-tuned the BLOOM 3B model on a curated dataset of conversational Bangla, using LoRA for efficient adaptation and maintaining bilingual capabilities.",
     modelAvailable: "https://huggingface.co/faisalahmedsifat/bloom-3b-convo-bangla-english-instruction-existing",
     views: 720,
-    date: "2022-08-15",
+    date: "2024-06-13",
     published: true,
     featured: false,
     type: "research"
@@ -274,7 +274,7 @@ export const projects: Project[] = [
     problem: "Large language models often hallucinate information and lack up-to-date knowledge.",
     solution: "Integrated a vector database with the fine-tuned Llama 2 model to retrieve relevant information before generating responses, improving factuality and relevance.",
     views: 680,
-    date: "2022-12-10",
+    date: "2024-12-10",
     published: true,
     featured: false,
     type: "research"
