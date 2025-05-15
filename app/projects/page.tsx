@@ -142,6 +142,20 @@ export default function ProjectsPage() {
               </div>
             </div>
           )}
+
+          {publications.length > 0 && (
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-100">Publications</h3>
+              <div className="hidden w-full h-px my-2 sm:my-4 md:block bg-zinc-800" />
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 mx-auto lg:mx-0 md:grid-cols-2">
+                {publications.map((project) => (
+                  <Card key={project.slug}>
+                    <Article project={project} />
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
           
           {researchProjects.length > 0 && (
             <div>
@@ -156,20 +170,7 @@ export default function ProjectsPage() {
               </div>
             </div>
           )}
-          
-          {publications.length > 0 && (
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-100">Publications</h3>
-              <div className="hidden w-full h-px my-2 sm:my-4 md:block bg-zinc-800" />
-              <div className="grid grid-cols-1 gap-3 sm:gap-4 mx-auto lg:mx-0 md:grid-cols-2">
-                {publications.map((project) => (
-                  <Card key={project.slug}>
-                    <Article project={project} />
-                  </Card>
-                ))}
-              </div>
-            </div>
-          )}
+         
         </div>
       </div>
       
